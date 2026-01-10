@@ -293,7 +293,8 @@ std::vector<rpc::ObjectReference> TaskManager::AddPendingTask(
                                         is_reconstructable,
                                         /*add_local_ref=*/true,
                                         /*pinned_at_node_id=*/std::optional<NodeID>(),
-                                        tensor_transport);
+                                        tensor_transport,
+                                        spec.ReconstructOnly());
     }
 
     return_ids.push_back(return_id);

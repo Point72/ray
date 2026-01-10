@@ -3395,7 +3395,8 @@ cdef class CoreWorker:
                     c_bool enable_task_events,
                     labels,
                     label_selector,
-                    fallback_strategy):
+                    fallback_strategy,
+                    c_bool reconstruct_only=False):
         cdef:
             unordered_map[c_string, double] c_resources
             unordered_map[c_string, c_string] c_labels
@@ -3444,7 +3445,8 @@ cdef class CoreWorker:
                 c_label_selector,
                 # `tensor_transport` is currently only supported in Ray Actor tasks.
                 NULL_TENSOR_TRANSPORT,
-                c_fallback_strategy)
+                c_fallback_strategy,
+                reconstruct_only)
 
             current_c_task_id = current_task.native()
 

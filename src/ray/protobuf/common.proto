@@ -603,6 +603,10 @@ message TaskSpec {
   optional string tensor_transport = 44;
   // A list of fallback options defining the fallback strategy for scheduling.
   FallbackStrategy fallback_strategy = 45;
+  // If true, task outputs should only be reconstructed via lineage, never copied
+  // between nodes. This is useful when the cost of recomputation is lower than
+  // the cost of data transfer.
+  bool reconstruct_only = 46;
 }
 
 message TaskInfoEntry {
